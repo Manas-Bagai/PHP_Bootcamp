@@ -24,13 +24,14 @@ Route::post('/user',[UserController::class,'create']);
 
 Route::get('/user',[UserController::class,'getAllUsers']);
 
-Route::get('/user/{name}',[UserController::class,'getUsersByName']);
+Route::get('/user/name/{name}',[UserController::class,'getUsersByName']);
 
-Route::get('/user/mobile/{mobile_number}',[UserController::class,'getUsersByMobileNumber']);
+Route::get('/user/mobile_number/{mobile_number}',[UserController::class,'getUsersByMobileNumber']);
 
 Route::get('/user/email/{email}',[UserController::class,'getUsersByEmail']);
 
-Route::delete('/user/{id}',function($id){
-    User::find($id)->delete();
-    return 204;
-});
+Route::delete('/user/mobile_number/{mobile_number}',[UserController::class,'deleteUsersByMobileNumber']);
+
+Route::delete('/user/name/{name}',[UserController::class,'deleteUsersByName']);
+
+Route::delete('/user/email/{email}',[UserController::class,'deleteUsersByEmail']);
